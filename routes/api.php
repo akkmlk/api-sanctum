@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Transaction\TransactionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
@@ -37,4 +38,7 @@ Route::middleware('auth:sanctum')->group(function() {
 
     Route::resource('user', UserController::class)->except('show', 'edit', 'create');
     Route::resource('obat', ObatController::class)->except('show');
+    Route::get('obat/type', [ObatController::class, 'typeObat'])->name('obat.type');
+    Route::post('add-cart', [TransactionController::class, 'addCart'])->name('transaction.addCart');
+    Route::get('invoice', [TransactionController::class, 'invoice'])->name('transaction.invoice');
 });

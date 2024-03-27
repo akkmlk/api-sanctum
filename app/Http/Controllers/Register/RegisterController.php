@@ -16,8 +16,7 @@ class RegisterController extends Controller
             'name' => 'required|max:255|min:3',
             'username' => 'required|max:255|min:3',
             'alamat' => 'required|min:3',
-            'password' => 'required|min:8',
-            'passwordConfirmation' => 'required',
+            'password' => 'required|min:8|confirmed',
         ];
 
         $validator = Validator::make($request->all(), $validated);
